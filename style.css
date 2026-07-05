@@ -1,0 +1,67 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    color: #2b4f6e;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.intro {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 28px;
+}
+
+.line {
+    position: fixed;
+    top: calc(50% - 24px);
+    left: 28px;
+    height: 1.2px;
+    width: 0;
+    background: #2b4f6e;
+    z-index: 10;
+    animation: drawLine 0.5s linear forwards 1.8s;
+}
+
+.name {
+    white-space: nowrap;
+    font-weight: 400;
+    opacity: 0;
+    animation: fadeIn 0.9s ease forwards 0.2s;
+}
+
+.role {
+    white-space: nowrap;
+    opacity: 0;
+}
+
+.role-1,
+.role-2 {
+    animation: fadeIn 0.9s ease forwards 0.4s;
+}
+
+.roles {
+    display: flex;
+    gap: 30px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes drawLine {
+    from { width: 0; }
+    to   { width: calc(100% - 56px); }
+}
