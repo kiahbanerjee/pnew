@@ -1,0 +1,25 @@
+body {
+    overflow: auto;
+    height: auto;
+}
+
+.info-page {
+    padding: 80px var(--pad) var(--pad);
+    display: flex;
+    flex-direction: column;
+    gap: 2.5em;
+}
+
+.info-bio {
+    font-size: 2.5em;
+    font-weight: 500;
+    line-height: 1.05;
+    max-width: 60%;
+    
+}
+
+.info-contact {
+    font-size: 2em;
+    font-weight: 500;
+    line-height: 1.1;
+}

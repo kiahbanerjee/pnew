@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Information — Kiah Banerjee</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="info.css">
+    <link rel="stylesheet" href="https://use.typekit.net/kuf7grk.css">
+</head>
+<body>
+    <div class="lines exit" id="info-lines"></div>
+
+    <nav class="main-nav visible">
+        <a href="index.html" class="nav-home">Kiah Banerjee</a>
+        <span>Archive</span>
+        <span>CV</span>
+        <span class="nav-active">Information</span>
+    </nav>
+
+    <main class="info-page">
+        <p class="info-bio">Kiah Banerjee is a designer based in NYC. She is currently a communication design student at Parsons School of Design, New York. She is interested in book and publication design, conceptual interaction design, editorial design, and creative direction.</p>
+        <div class="info-contact">
+            <p>@art.design_kiah</p>
+            <p>banek015@newschool.edu</p>
+        </div>
+    </main>
+
+    <script>
+        const container = document.getElementById('info-lines');
+        const spacing   = 10;
+        const pad       = 20;
+        const count     = Math.ceil((window.innerWidth - pad * 2) / spacing);
+
+        for (let i = 0; i < count; i++) {
+            const line = document.createElement('div');
+            line.className = 'vline';
+            line.style.animation  = 'none';
+            line.style.transform  = 'scaleY(1)';
+            line.style.opacity    = '1';
+            container.appendChild(line);
+        }
+    </script>
+</body>
+</html>
