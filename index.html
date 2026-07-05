@@ -4,13 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kiah Banerjee</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.typekit.net/kuf7grk.css">
 </head>
 <body>
-    <div class="line"></div>
+    <div class="lines"></div>
     <div class="intro">
         <span class="name">Kiah Banerjee</span>
         <div class="roles">
@@ -19,5 +17,58 @@
         </div>
     </div>
 
+    <div class="home">
+        <nav class="main-nav">
+            <span>Kiah Banerjee</span>
+            <span>Archive</span>
+            <span>Overview</span>
+            <span>Contact</span>
+            <span>CV</span>
+        </nav>
+        <div class="featured">
+            <img src="edible streets 1.jpg" class="featured-img" alt="Edible Streets">
+            <div class="featured-info">
+                <p class="project-title">Edible Streets</p>
+                <p class="project-type">Book Design</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const container = document.querySelector('.lines');
+        const spacing   = 14;
+        const startX    = 28;
+        const endX      = document.querySelector('.roles').getBoundingClientRect().right + 8;
+        const count     = Math.floor((endX - startX) / spacing) + 1;
+
+        for (let i = 0; i < count; i++) {
+            const line = document.createElement('div');
+            line.className = 'vline';
+            line.style.left = (startX + i * spacing) + 'px';
+            line.style.animationDelay = (1.4 + i * 0.015) + 's';
+            container.appendChild(line);
+        }
+
+        const lastLineEnd = (1.4 + (count - 1) * 0.015 + 0.25) * 1000;
+        const exitStart   = lastLineEnd + 150;
+        const homeDelay   = exitStart + 1000 + 400;
+
+        setTimeout(() => {
+            document.querySelector('.intro').classList.add('exit');
+            document.querySelector('.lines').classList.add('exit');
+        }, exitStart);
+
+        setTimeout(() => {
+            document.querySelector('.main-nav').classList.add('visible');
+        }, homeDelay);
+
+        setTimeout(() => {
+            document.querySelector('.featured-img').classList.add('visible');
+        }, homeDelay + 200);
+
+        setTimeout(() => {
+            document.querySelector('.featured-info').classList.add('visible');
+        }, homeDelay + 400);
+    </script>
 </body>
 </html>
