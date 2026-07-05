@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kiah Banerjee</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://use.typekit.net/kuf7grk.css">
+<link rel="stylesheet" href="https://use.typekit.net/kuf7grk.css">
 </head>
 <body>
     <div class="lines"></div>
@@ -18,11 +18,11 @@
     </div>
 
     <nav class="main-nav">
-        <span>Kiah Banerjee</span>
+        <span class="nav-home">Kiah Banerjee</span>
         <span>Archive</span>
-        <span>Overview</span>
         <span>Contact</span>
         <span>CV</span>
+        <span>Information</span>
     </nav>
 
     <div class="home">
@@ -55,15 +55,13 @@
 
     <script>
         const container = document.querySelector('.lines');
-        const spacing   = 14;
-        const startX    = 28;
-        const endX      = document.querySelector('.roles').getBoundingClientRect().right + 8;
-        const count     = Math.floor((endX - startX) / spacing) + 1;
+        const spacing = 10;
+        const pad     = 20;
+        const count   = Math.ceil((window.innerWidth - pad * 2) / spacing);
 
         for (let i = 0; i < count; i++) {
             const line = document.createElement('div');
             line.className = 'vline';
-            line.style.left = (startX + i * spacing) + 'px';
             line.style.animationDelay = (1.4 + i * 0.015) + 's';
             container.appendChild(line);
         }
@@ -102,6 +100,30 @@
         }, { threshold: 0.15 });
 
         document.querySelectorAll('.project-section:not(:first-child)').forEach(s => observer.observe(s));
+
+        // Click anywhere to advance to next section
+        const home     = document.querySelector('.home');
+        const sections = [...document.querySelectorAll('.project-section')];
+        let currentIdx = 0;
+
+        document.querySelector('.nav-home').addEventListener('click', () => {
+            currentIdx = 0;
+            home.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        home.addEventListener('scroll', () => {
+            currentIdx = Math.round(home.scrollTop / window.innerHeight);
+        });
+
+        home.addEventListener('click', (e) => {
+            if (e.target.closest('a, button, video, img, nav')) return;
+            if (currentIdx < sections.length - 1) {
+                currentIdx++;
+            } else {
+                currentIdx = 0;
+            }
+            home.scrollTo({ top: window.innerHeight * currentIdx, behavior: 'smooth' });
+        });
     </script>
 </body>
 </html>
