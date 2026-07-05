@@ -112,11 +112,21 @@ body {
     inset: 0;
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
-    scrollbar-width: none;
+    scrollbar-width: thin;
+    scrollbar-color: #2b4f6e transparent;
 }
 
 .home::-webkit-scrollbar {
-    display: none;
+    width: 4px;
+}
+
+.home::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.home::-webkit-scrollbar-thumb {
+    background: #2b4f6e;
+    border-radius: 2px;
 }
 
 .project-section {
