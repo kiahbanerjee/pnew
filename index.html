@@ -17,21 +17,40 @@
         </div>
     </div>
 
+    <nav class="main-nav">
+        <span>Kiah Banerjee</span>
+        <span>Archive</span>
+        <span>Overview</span>
+        <span>Contact</span>
+        <span>CV</span>
+    </nav>
+
     <div class="home">
-        <nav class="main-nav">
-            <span>Kiah Banerjee</span>
-            <span>Archive</span>
-            <span>Overview</span>
-            <span>Contact</span>
-            <span>CV</span>
-        </nav>
-        <div class="featured">
+        <section class="project-section">
             <img src="edible streets 1.jpg" class="featured-img" alt="Edible Streets">
             <div class="featured-info">
                 <p class="project-title">Edible Streets</p>
                 <p class="project-type">Book Design</p>
             </div>
-        </div>
+        </section>
+        <section class="project-section">
+            <video class="featured-video" autoplay muted loop playsinline>
+                <source src="nyc street musicians.mp4" type="video/mp4">
+            </video>
+            <div class="featured-info">
+                <p class="project-title">NYC Street Musicians</p>
+                <p class="project-type">Publication</p>
+            </div>
+        </section>
+        <section class="project-section">
+            <video class="featured-video" autoplay muted loop playsinline>
+                <source src="book of sand 1.mp4" type="video/mp4">
+            </video>
+            <div class="featured-info">
+                <p class="project-title">The Book of Sand</p>
+                <p class="project-type">Creative Coding & Interaction Design</p>
+            </div>
+        </section>
     </div>
 
     <script>
@@ -64,11 +83,25 @@
 
         setTimeout(() => {
             document.querySelector('.featured-img').classList.add('visible');
+            document.querySelector('.project-section:first-child .featured-info').classList.add('visible');
         }, homeDelay + 200);
 
-        setTimeout(() => {
-            document.querySelector('.featured-info').classList.add('visible');
-        }, homeDelay + 400);
+        // Trigger each scroll section when snapped into view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const video = entry.target.querySelector('.featured-video');
+                    const info  = entry.target.querySelector('.featured-info');
+                    video.style.transition = 'none';
+                    info.style.transition  = 'none';
+                    video.classList.add('visible');
+                    info.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.project-section:not(:first-child)').forEach(s => observer.observe(s));
     </script>
 </body>
 </html>

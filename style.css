@@ -14,6 +14,8 @@ body {
     overflow: hidden;
 }
 
+/* ── Intro ── */
+
 .intro {
     position: fixed;
     inset: 0;
@@ -22,6 +24,7 @@ body {
     justify-content: space-between;
     padding: 0 28px;
     transition: transform 1s ease, opacity 1s ease;
+    z-index: 2;
 }
 
 .intro.exit {
@@ -45,7 +48,7 @@ body {
     position: absolute;
     top: calc(50% - 35px);
     width: 1px;
-    height: 22px;
+    height: 20px;
     background: #2b4f6e;
     transform: scaleY(0);
     opacity: 0;
@@ -84,22 +87,18 @@ body {
     to   { transform: scaleY(1); opacity: 1; }
 }
 
-/* ── Home page ── */
-
-.home {
-    position: fixed;
-    inset: 0;
-    display: flex;
-    flex-direction: column;
-    padding: 0 28px 28px;
-    pointer-events: none;
-}
+/* ── Home ── */
 
 .main-nav {
+    position: fixed;
+    top: 36px;
+    left: 28px;
+    right: 28px;
     display: flex;
     justify-content: space-between;
-    padding-top: 36px;
+    z-index: 5;
     opacity: 0;
+    pointer-events: none;
     transition: opacity 0.7s ease;
 }
 
@@ -108,16 +107,31 @@ body {
     pointer-events: all;
 }
 
-.featured {
-    flex: 1;
+.home {
+    position: fixed;
+    inset: 0;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scrollbar-width: none;
+}
+
+.home::-webkit-scrollbar {
+    display: none;
+}
+
+.project-section {
+    height: 100vh;
+    scroll-snap-align: start;
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 12px;
-    min-height: 0;
+    padding: 80px 28px 60px;
+    overflow: hidden;
 }
 
-.featured-img {
+.featured-img,
+.featured-video {
     width: 100%;
     max-height: 70vh;
     object-fit: contain;
@@ -127,14 +141,20 @@ body {
     transition: transform 1.1s cubic-bezier(0.25, 0, 0, 1);
 }
 
-.featured-img.visible {
+.featured-img.visible,
+.featured-video.visible {
     opacity: 1;
     transform: translateY(0);
 }
 
 .featured-info {
+    position: absolute;
+    bottom: 28px;
+    left: 0;
+    right: 0;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 4px;
     opacity: 0;
     transform: translateY(100vh);
