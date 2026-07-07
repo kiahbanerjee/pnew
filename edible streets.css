@@ -1,0 +1,129 @@
+body {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: auto;
+}
+
+.es-page {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Full-width cover image */
+.es-cover {
+    width: 100%;
+}
+
+.es-cover img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Intro text section */
+.es-intro {
+    padding: 4em var(--pad);
+    display: flex;
+    flex-direction: column;
+    gap: 2.5em;
+    max-width: 60%;
+}
+
+.es-description {
+    font-size: 2.5em;
+    font-weight: 500;
+    line-height: 1.05;
+}
+
+.es-meta {
+    font-size: 2.5em;
+    font-weight: 500;
+    line-height: 1.05;
+    opacity: 0.5;
+}
+
+/* Full-width video */
+.es-video {
+    width: 100%;
+}
+
+.es-video video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Scattered collage */
+.es-collage {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3em;
+    padding: 6em 0;
+    margin: 0 -8%;
+}
+
+.es-collage img {
+    width: 100%;
+    height: auto;
+    display: block;
+    box-shadow: 0px 2px 12px 8px rgba(0, 0, 0, 0.35);
+}
+
+.es-collage .es-col-1 { transform: rotate(-12deg); position: relative; top: -8em;  left: 10%;  width: 120%; z-index: 2; }
+.es-collage .es-col-2 { transform: rotate(13deg);  position: relative; top: 16em;  left: -13%;   width: 120%; z-index: 1; }
+.es-collage .es-col-3 { transform: rotate(0deg);  position: relative; top: 10em;   left: 15%;   width: 160%; }
+.es-collage .es-col-4 { transform: rotate(0deg);   position: relative; top: 48em;   left: -35%;   width: 130%; }
+.es-collage .es-col-5 { transform: rotate(12deg);  position: relative; top: 30em;   left: 10%;   width: 120%; }
+.es-collage .es-col-6 { transform: rotate(-5deg);  position: relative; top: 60em;   left: -60%;   width: 140%; }
+
+/* Side-by-side image pair */
+.es-image-pair {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 3em;
+    padding: 4em var(--pad);
+}
+
+.es-image-pair img:nth-child(2) {
+    margin-top: 4em;
+}
+
+.es-image-pair img {
+    max-width: 32%;
+    height: auto;
+    display: block;
+}
+
+/* Full-width generic image block */
+.es-fullwidth {
+    width: 100%;
+}
+
+.es-fullwidth img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Detail / design text */
+.es-detail {
+    padding: 4em var(--pad);
+    display: flex;
+    flex-direction: column;
+    gap: 3em;
+    max-width: 60%;
+}
+
+.es-detail-label {
+    font-size: 1.25em;
+    font-weight: 500;
+    opacity: 0.5;
+    margin-bottom: 0.8em;
+}
+
+.es-detail-text {
+    font-size: 2.5em;
+    font-weight: 500;
+    line-height: 1.05;
+}

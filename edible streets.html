@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edible Streets — Kiah Banerjee</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="edible streets.css">
+    <link rel="stylesheet" href="https://use.typekit.net/kuf7grk.css">
+</head>
+<body>
+    <div class="lines exit" id="es-lines"></div>
+
+    <nav class="main-nav visible">
+        <a href="index.html" class="nav-home">Kiah Banerjee</a>
+        <span>Archive</span>
+        <span>CV</span>
+        <a href="info.html">Information</a>
+    </nav>
+
+    <main class="es-page">
+
+        <div class="es-cover">
+            <img src="cover.jpg" alt="Edible Streets cover">
+        </div>
+
+        <div class="es-intro">
+            <p class="es-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac velit nibh. Donec ipsum augue, tempor eu neque ac, tempor suscipit arcu. Donec tincidunt ultrices justo at blandit. Nam iaculis malesuada risus, id feugiat augue cursus a. Ut id hendrerit quam, sed eleifend lorem. Pellentesque at aliquam erat, non molestie ante.</p>
+            <div class="es-meta">
+                <p>Book Design / Creative Direction</p>
+                <p>2025</p>
+            </div>
+        </div>
+
+        <div class="es-video">
+            <video autoplay muted loop playsinline>
+                <source src="ediblestreets.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="es-detail">
+            <div class="es-detail-block">
+                <p class="es-detail-label">Detail</p>
+                <p class="es-detail-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac velit nibh. Donec ipsum augue, tempor eu neque ac, tempor suscipit arcu. Donec tincidunt ultrices justo at blandit. Nam iaculis malesuada risus, id feugiat augue cursus a. Ut id hendrerit quam, sed eleifend lorem. Pellentesque at aliquam erat, non molestie ante.</p>
+            </div>
+            <div class="es-detail-block">
+                <p class="es-detail-label">Design</p>
+                <p class="es-detail-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac velit nibh. Donec ipsum augue, tempor eu neque ac, tempor suscipit arcu. Donec tincidunt ultrices justo at blandit. Nam iaculis malesuada risus, id feugiat augue cursus a. Ut id hendrerit quam, sed eleifend lorem. Pellentesque at aliquam erat, non molestie ante.</p>
+            </div>
+        </div>
+
+        <div class="es-fullwidth">
+            <img src="moodboard-es.png" alt="Edible Streets moodboard">
+        </div>
+
+        <div class="es-image-pair">
+            <img src="pg1.jpg" alt="Edible Streets page 1">
+            <img src="pg2.jpg" alt="Edible Streets page 2">
+        </div>
+
+        <div class="es-collage">
+            <img src="0017.jpg" class="es-col-1">
+            <img src="0038.jpg" class="es-col-2">
+            <img src="0021.jpg" class="es-col-3">
+            <img src="0014.jpg" class="es-col-4">
+            <img src="0030.jpg" class="es-col-5">
+            <img src="0035.jpg" class="es-col-6">
+        </div>
+
+    </main>
+
+    <script>
+        document.querySelector('.nav-home').addEventListener('click', () => {
+            sessionStorage.setItem('skipIntro', '1');
+        });
+
+        const container = document.getElementById('es-lines');
+        const spacing   = 10;
+        const pad       = 20;
+        const count     = Math.ceil((window.innerWidth - pad * 2) / spacing);
+
+        for (let i = 0; i < count; i++) {
+            const line = document.createElement('div');
+            line.className = 'vline';
+            line.style.animation  = 'none';
+            line.style.transform  = 'scaleY(1)';
+            line.style.opacity    = '1';
+            container.appendChild(line);
+        }
+    </script>
+</body>
+</html>
