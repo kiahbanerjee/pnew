@@ -126,6 +126,11 @@ body {
 
 .nav-home {
     cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.nav-home:hover {
+    opacity: 0.4;
 }
 
 .main-nav a {
@@ -187,6 +192,11 @@ body {
     transition: transform 1.1s cubic-bezier(0.25, 0, 0, 1);
 }
 
+.featured-img:hover,
+.featured-video:hover {
+    cursor: url('arrow-up-right (2).svg') 0 0, auto;
+}
+
 .featured-img.visible,
 .featured-video.visible {
     opacity: 1;
@@ -217,8 +227,6 @@ body {
 }
 
 .project-type {
-    font-family: "neue-haas-grotesk-display", sans-serif;
     font-weight: 500;
-    /* font-style: italic; */
-    opacity: 1;
+    opacity: 0.5;
 }

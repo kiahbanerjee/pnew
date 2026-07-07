@@ -21,12 +21,16 @@
     <main class="info-page">
         <p class="info-bio">Kiah Banerjee is a designer based in NYC. She is currently a communication design student at Parsons School of Design, New York. She is interested in book and publication design, conceptual interaction design, editorial design, and creative direction.</p>
         <div class="info-contact">
-            <p>@art.design_kiah</p>
-            <p>banek015@newschool.edu</p>
+            <p><a href="https://www.instagram.com/art.design_kiah/" target="_blank">@art.design_kiah</a></p>
+            <p><a href="mailto:banek015@gmail.com">banek015@gmail.com</a></p>
         </div>
     </main>
 
     <script>
+        document.querySelector('.nav-home').addEventListener('click', () => {
+            sessionStorage.setItem('skipIntro', '1');
+        });
+
         const container = document.getElementById('info-lines');
         const spacing   = 10;
         const pad       = 20;

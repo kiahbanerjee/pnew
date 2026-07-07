@@ -53,35 +53,60 @@
     </div>
 
     <script>
-        const container = document.querySelector('.lines');
-        const spacing = 10;
-        const pad     = 20;
-        const count   = Math.ceil((window.innerWidth - pad * 2) / spacing);
+        const container  = document.querySelector('.lines');
+        const spacing    = 10;
+        const pad        = 20;
+        const count      = Math.ceil((window.innerWidth - pad * 2) / spacing);
+        const hasPlayed  = sessionStorage.getItem('skipIntro');
+        sessionStorage.removeItem('skipIntro');
 
         for (let i = 0; i < count; i++) {
             const line = document.createElement('div');
             line.className = 'vline';
-            line.style.animationDelay = (1.4 + i * 0.015) + 's';
+            if (hasPlayed) {
+                line.style.animation = 'none';
+                line.style.transform = 'scaleY(1)';
+                line.style.opacity   = '1';
+            } else {
+                line.style.animationDelay = (1.4 + i * 0.015) + 's';
+            }
             container.appendChild(line);
         }
 
-        const lastLineEnd = (1.4 + (count - 1) * 0.015 + 0.25) * 1000;
-        const exitStart   = lastLineEnd + 150;
-        const homeDelay   = exitStart + 1000 + 400;
-
-        setTimeout(() => {
-            document.querySelector('.intro').classList.add('exit');
-            document.querySelector('.lines').classList.add('exit');
-        }, exitStart);
-
-        setTimeout(() => {
+        if (hasPlayed) {
+            const intro = document.querySelector('.intro');
+            const lines = document.querySelector('.lines');
+            intro.style.transition = 'none';
+            lines.style.transition = 'none';
+            intro.classList.add('exit');
+            lines.classList.add('exit');
             document.querySelector('.main-nav').classList.add('visible');
-        }, homeDelay);
+            const featuredImg  = document.querySelector('.featured-img');
+            const firstInfo    = document.querySelector('.project-section:first-child .featured-info');
+            featuredImg.style.transition = 'none';
+            firstInfo.style.transition   = 'none';
+            featuredImg.classList.add('visible');
+            firstInfo.classList.add('visible');
+        } else {
 
-        setTimeout(() => {
-            document.querySelector('.featured-img').classList.add('visible');
-            document.querySelector('.project-section:first-child .featured-info').classList.add('visible');
-        }, homeDelay + 200);
+            const lastLineEnd = (1.4 + (count - 1) * 0.015 + 0.25) * 1000;
+            const exitStart   = lastLineEnd + 150;
+            const homeDelay   = exitStart + 1000 + 400;
+
+            setTimeout(() => {
+                document.querySelector('.intro').classList.add('exit');
+                document.querySelector('.lines').classList.add('exit');
+            }, exitStart);
+
+            setTimeout(() => {
+                document.querySelector('.main-nav').classList.add('visible');
+            }, homeDelay);
+
+            setTimeout(() => {
+                document.querySelector('.featured-img').classList.add('visible');
+                document.querySelector('.project-section:first-child .featured-info').classList.add('visible');
+            }, homeDelay + 200);
+        }
 
         // Trigger each scroll section when snapped into view
         const observer = new IntersectionObserver((entries) => {

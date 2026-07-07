@@ -3,6 +3,18 @@ body {
     height: auto;
 }
 
+.info-contact a {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.info-contact a:hover {
+    opacity: 0.4;
+    cursor: url('arrow-up-right (2).svg') 0 0, auto;
+}
+
 .info-page {
     padding: 80px var(--pad) var(--pad);
     display: flex;
