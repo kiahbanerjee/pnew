@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NYC Street Musicians — Kiah Banerjee</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="nycsm.css">
+    <link rel="stylesheet" href="https://use.typekit.net/kuf7grk.css">
+</head>
+<body>
+    <div class="lines exit" id="nycsm-lines"></div>
+
+    <nav class="main-nav visible">
+        <a href="index.html" class="nav-home">Kiah Banerjee</a>
+        <span>Archive</span>
+        <span>CV</span>
+        <a href="info.html">Information</a>
+    </nav>
+
+    <main class="nycsm-page">
+
+        <div class="nycsm-fullwidth">
+            <video autoplay muted loop playsinline>
+                <source src="nyc street musicians.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="nycsm-intro">
+            <p class="nycsm-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac velit nibh. Donec ipsum augue, tempor eu neque ac, tempor suscipit arcu. Donec tincidunt ultrices justo at blandit. Nam iaculis malesuada risus, id feugiat augue cursus a. Ut id hendrerit quam, sed eleifend lorem. Pellentesque at aliquam erat, non molestie ante.</p>
+            <div class="nycsm-meta">
+                <p>Publication</p>
+                <p>2025</p>
+            </div>
+        </div>
+
+        <div class="nycsm-fullwidth">
+            <video autoplay muted loop playsinline>
+                <source src="playing.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="nycsm-detail">
+            <div class="nycsm-detail-block">
+                <p class="nycsm-detail-label">Detail</p>
+                <p class="nycsm-detail-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac velit nibh. Donec ipsum augue, tempor eu neque ac, tempor suscipit arcu. Donec tincidunt ultrices justo at blandit. Nam iaculis malesuada risus, id feugiat augue cursus a.</p>
+            </div>
+            <div class="nycsm-detail-block">
+                <p class="nycsm-detail-label">Design</p>
+                <p class="nycsm-detail-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac velit nibh. Donec ipsum augue, tempor eu neque ac, tempor suscipit arcu. Donec tincidunt ultrices justo at blandit. Nam iaculis malesuada risus, id feugiat augue cursus a.</p>
+            </div>
+        </div>
+
+        <div class="nycsm-fullwidth">
+            <video autoplay muted loop playsinline>
+                <source src="nycsm.mov" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="nycsm-stack">
+            <img src="nycsm3.png" alt="">
+            <img src="nycsm4.png" alt="">
+            <img src="nysm5.png" alt="">
+            <img src="nycsm2.png" alt="">
+            <img src="nycsm1.png" alt="">
+            <img src="nysm6.png" alt="">
+        </div>
+
+    </main>
+
+    <script>
+        document.querySelector('.nav-home').addEventListener('click', () => {
+            sessionStorage.setItem('skipIntro', '1');
+        });
+
+        const container = document.getElementById('nycsm-lines');
+        const spacing   = 10;
+        const pad       = 20;
+        const count     = Math.ceil((window.innerWidth - pad * 2) / spacing);
+
+        for (let i = 0; i < count; i++) {
+            const line = document.createElement('div');
+            line.className = 'vline';
+            line.style.animation  = 'none';
+            line.style.transform  = 'scaleY(1)';
+            line.style.opacity    = '1';
+            container.appendChild(line);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(perl -i -0pe 's|\\(        </div>\\\\n\\\\n    </main>\\)|        <div class=\"nycsm-fullwidth\">\\\\n            <video autoplay muted loop playsinline>\\\\n                <source src=\"nycsm.mov\" type=\"video/mp4\">\\\\n            </video>\\\\n        </div>\\\\n\\\\n    </main>|' \"/Users/kiahbanerjee/Desktop/pnew/nycsm.html\")",
+      "Bash(perl -i -0pe 's|            </div>\\\\n        <div class=\"nycsm-fullwidth\">|            </div>\\\\n        </div>\\\\n\\\\n        <div class=\"nycsm-fullwidth\">|' \"/Users/kiahbanerjee/Desktop/pnew/nycsm.html\")"
+    ]
+  }
+}

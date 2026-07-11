@@ -9,7 +9,7 @@
 }
 
 body {
-    background: #C3AB03;
+    background: #E4DCC5;
 
     font-family: "neue-haas-grotesk-text", sans-serif;
     font-size: 13px;
@@ -18,7 +18,7 @@ body {
     letter-spacing: .03em;
     line-height: 1.1;
     /* color: #f58549; */
-    color: #370230;
+    color: #073B4C;
 
     height: 100vh;
     overflow: hidden;
@@ -66,7 +66,7 @@ body {
     width: 1px;
     height: 20px;
     /* background: #f58549; */
-        background: #370230;
+        background: #073B4C;
 
     transform: scaleY(0);
     opacity: 0;
@@ -151,7 +151,7 @@ body {
     scroll-snap-type: y mandatory;
     scrollbar-width: thin;
     /* scrollbar-color: #f58549 transparent; */
-        scrollbar-color: #370230 transparent;
+        scrollbar-color: #073B4C transparent;
 
 }
 
@@ -165,7 +165,7 @@ body {
 
 .home::-webkit-scrollbar-thumb {
     /* background: #fb5607; */
-        background: #370230 ;
+        background: #073B4C;
 
     border-radius: 2px;
 }
