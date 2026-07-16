@@ -10,6 +10,10 @@
 </head>
 <body>
 
+    <div id="intro">
+        <img src="cursor.svg" id="intro-logo">
+    </div>
+
     <div class="lightbox" id="lightbox">
         <div class="lightbox-inner">
             <button class="lightbox-close" id="lightbox-close">✕</button>
@@ -46,18 +50,21 @@
                     </video>
                 </a>
                 <p class="project-label"><span class="project-title">NYC Street Musicians</span> / <span class="project-type">Publication</span></p>
-                <p class="project-desc">Democratic design for overlooked voices: stories of NY's street musicians, told on their own terms.</p>
+                <p class="project-desc">Democratic design for overlooked voices: stories of street musicians, told on their own terms.</p>
             </div>
             <div class="project">
                 <video autoplay muted loop playsinline>
                     <source src="book of sand 1.mp4" type="video/mp4">
                 </video>
-                <p class="project-label"><span class="project-title">The Book of Sand</span> / <span class="project-type">Creative Coding & Interaction Design</span></p>
+                <p class="project-label"><span class="project-title">The Book of Sand</span> / <span class="project-type">Creative Coding, Interaction Design</span></p>
             </div>
         </div>
     </section>
 
     <script>
+        const intro = document.getElementById('intro');
+        intro.addEventListener('animationend', () => intro.remove());
+
         const lightbox = document.getElementById('lightbox');
         const inner = document.querySelector('.lightbox-inner');
 
