@@ -3,35 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kiah Banerjee</title>
+    <title>Kiah's Portfolio</title>
+    <link rel="icon" href="favicon.png" type="image/png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://use.typekit.net/ieb3fys.css">
 </head>
 <body>
 
-    <nav class="main-nav">
-        <span></span>
-        <div class="nav-right">
-            <span>Archive</span>
-            <span>CV</span>
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-inner">
+            <button class="lightbox-close" id="lightbox-close">✕</button>
+            <img src="me.jpeg" alt="Kiah Banerjee">
         </div>
+    </div>
+
+    <nav class="main-nav home-nav">
+        <span>Archive</span>
+        <span>CV</span>
     </nav>
 
     <div class="site-header">
         <div class="bio">
-            <p><span class="bio-name">Kiah Banerjee</span> ( ) is a designer based in NYC. She is currently studying communication design at Parsons School of Design, New York. She is interested in book and publication design, creative coding, editorial design, and creative direction.</p>
-            <p class="bio-links"><a href="#">Email</a> / <a href="#">Instagram</a> / <a href="#">LinkedIn</a></p>
+            <p><span class="bio-name">Kiah Banerjee</span> (<img src="IMG_7741-removebg-preview.png" class="bio-photo" alt="">)is a designer based in NYC. She is currently studying communication design at Parsons School of Design, New York. She is interested in book and publication design, creative coding, editorial design, and creative direction.</p>
+            <p class="bio-links"><a href="mailto:banek015@newschool.edu">Email</a> / <a href="https://www.instagram.com/art.design_kiah/" target="_blank">Instagram</a> / <a href="https://www.linkedin.com/in/vaishnavi-banerjee/" target="_blank">LinkedIn</a></p>
         </div>
     </div>
 
     <section class="selected-work">
-        <p class="section-label">Selected Work</p>
+        <p class="section-label">Selected Work <img src="arrow.svg" class="section-arrow" alt=""></p>
         <div class="project-grid">
             <div class="project">
                 <a href="edible streets.html">
                     <img src="edible streets 1.jpg" alt="Edible Streets">
                 </a>
                 <p class="project-label"><span class="project-title">Edible Streets</span> / <span class="project-type">Book Design</span></p>
+                <p class="project-desc">A love letter to the food the internet calls dirty and India calls home.</p>
             </div>
             <div class="project">
                 <a href="nycsm.html">
@@ -40,6 +46,7 @@
                     </video>
                 </a>
                 <p class="project-label"><span class="project-title">NYC Street Musicians</span> / <span class="project-type">Publication</span></p>
+                <p class="project-desc">Democratic design for overlooked voices: stories of NY's street musicians, told on their own terms.</p>
             </div>
             <div class="project">
                 <video autoplay muted loop playsinline>
@@ -50,5 +57,29 @@
         </div>
     </section>
 
+    <script>
+        const lightbox = document.getElementById('lightbox');
+        const inner = document.querySelector('.lightbox-inner');
+
+        document.querySelector('.bio-photo').addEventListener('click', function() {
+            const rect = this.getBoundingClientRect();
+            const photoX = rect.left + rect.width / 2;
+            const photoY = rect.top + rect.height / 2;
+
+            lightbox.classList.add('open');
+
+            const innerRect = inner.getBoundingClientRect();
+            const originX = photoX - innerRect.left;
+            const originY = photoY - innerRect.top;
+            inner.style.transformOrigin = `${originX}px ${originY}px`;
+
+            inner.style.animation = 'none';
+            inner.offsetHeight;
+            inner.style.animation = '';
+        });
+
+        document.getElementById('lightbox-close').addEventListener('click', () => lightbox.classList.remove('open'));
+        lightbox.addEventListener('click', (e) => { if (e.target === lightbox) lightbox.classList.remove('open'); });
+    </script>
 </body>
 </html>

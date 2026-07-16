@@ -1,5 +1,5 @@
 :root {
-    --pad: 20px;
+    --pad: 30px;
 }
 
 *, *::before, *::after {
@@ -11,25 +11,31 @@
 body {
     background: #FF4D6D;
     font-family: "neue-haas-grotesk-display", sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 500;
     letter-spacing: .03em;
-    line-height: 1.4;
+    line-height: 1.2;
     color: #000000;
     overflow-y: auto;
+    cursor: url('cursor.svg') 16 16, auto;
 }
 
 /* ── Nav ── */
 
 .main-nav {
     position: fixed;
-    top: var(--pad);
+    top: 20px;
     left: var(--pad);
     right: var(--pad);
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     z-index: 5;
+}
+
+.home-nav {
+    justify-content: flex-end;
+    gap: 8vw;
 }
 
 .nav-right {
@@ -44,7 +50,7 @@ body {
 }
 
 .main-nav a {
-    cursor: pointer;
+    cursor: url('pointer.svg') 8 16, pointer;
     transition: opacity 0.2s;
 }
 
@@ -55,33 +61,107 @@ body {
 /* ── Homepage ── */
 
 .site-header {
-    padding: var(--pad);
-    padding-top: var(--pad);
-    min-height: 60vh;
+    padding: 20px var(--pad);
+    min-height: 36vh;
 }
 
 .bio {
-    max-width: 290px;
+    max-width: 450px;
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 20px;
+    line-height: 1.1;
 }
 
-.bio-links a {
-    color: inherit;
+@keyframes popIn {
+    0%   { transform: scale(0.4) rotate(-8deg); opacity: 0; }
+    60%  { transform: scale(1.06) rotate(2deg); opacity: 1; }
+    80%  { transform: scale(0.96) rotate(-1deg); }
+    100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+.lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+    cursor: url('cursor.svg') 16 16, auto;
+}
+
+.lightbox.open {
+    display: flex;
+}
+
+.lightbox-inner {
+    position: relative;
+    animation: popIn 0.8s cubic-bezier(0.22, 1.2, 0.36, 1) forwards;
+}
+
+.lightbox img {
+    max-width: 80vw;
+    max-height: 80vh;
+    object-fit: contain;
+    display: block;
+    cursor: url('cursor.svg') 16 16, auto;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: -16px;
+    right: -16px;
+    width: 32px;
+    height: 32px;
+    background: #FF4D6D;
+    border: none;
+    border-radius: 50%;
+    font-size: 16px;
+    line-height: 1;
+    cursor: url('pointer.svg') 8 16, pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: inherit;
+}
+
+.bio-photo {
+    height: 1.5em;
+    width: auto;
+    vertical-align: text-bottom;
+    margin: 0 4px;
+    cursor: url('pointer.svg') 8 16, pointer;
+}
+
+.bio-links a,
+.bio-links a:visited,
+.bio-links a:active {
     text-decoration: none;
+    color: #FFBD00;
 }
 
 .bio-links a:hover {
-    opacity: 0.5;
+    text-decoration: underline dotted;
+    text-underline-offset: 4px;
+    cursor: url('pointer.svg') 8 16, pointer;
 }
 
 .selected-work {
-    padding: 0 var(--pad) 60px;
+    padding: 0 var(--pad) 30px;
 }
 
 .section-label {
     margin-bottom: 20px;
+    position: relative;
+}
+
+.section-arrow {
+    height: 5.5em;
+    width: auto;
+    position: absolute;
+    bottom: -2em;
+    left: 6.5em;
 }
 
 .project-grid {
@@ -90,23 +170,47 @@ body {
     gap: 30px;
 }
 
+.project {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
 .project a {
     display: block;
     text-decoration: none;
+    overflow: hidden;
+    aspect-ratio: 4 / 2.5;
+    cursor: url('pointer.svg') 8 16, pointer;
+    position: relative;
+}
+
+.project a::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0);
+    transition: background 0.3s ease;
+    pointer-events: none;
+}
+
+.project a:hover::after {
+    background: rgba(255,255,255,0.15);
 }
 
 .project img,
 .project video {
     width: 100%;
-    height: auto;
+    height: 100%;
     display: block;
-    margin-bottom: 8px;
+    object-fit: cover;
 }
 
 .project-label {
     display: flex;
     gap: 4px;
     align-items: baseline;
+    margin-top: 8px;
 }
 
 .project-title {
@@ -118,7 +222,23 @@ body {
     opacity: 0.5;
 }
 
+.project-desc {
+    font-size: 0.85em;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease, max-height 0.3s ease;
+    margin-top: 0px;
+}
+
+.project:hover .project-desc {
+    opacity: 0.7;
+    max-height: 4em;
+}
+
 .bio-name,
-.bio-links a {
+.bio-links a,
+.bio-links a:visited,
+.bio-links a:active {
     color: #FFBD00;
 }
