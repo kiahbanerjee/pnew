@@ -5,149 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kiah Banerjee</title>
     <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://use.typekit.net/kuf7grk.css">
+    <link rel="stylesheet" href="https://use.typekit.net/ieb3fys.css">
 </head>
 <body>
-<div class="lines"></div>
-    <div class="intro">
-        <span class="name">Kiah Banerjee</span>
-        <div class="roles">
-            <span class="role role-1">Graphic Design</span>
-            <span class="role role-2">Creative Direction</span>
+
+    <nav class="main-nav">
+        <span></span>
+        <div class="nav-right">
+            <span>Archive</span>
+            <span>CV</span>
+        </div>
+    </nav>
+
+    <div class="site-header">
+        <div class="bio">
+            <p><span class="bio-name">Kiah Banerjee</span> ( ) is a designer based in NYC. She is currently studying communication design at Parsons School of Design, New York. She is interested in book and publication design, creative coding, editorial design, and creative direction.</p>
+            <p class="bio-links"><a href="#">Email</a> / <a href="#">Instagram</a> / <a href="#">LinkedIn</a></p>
         </div>
     </div>
 
-    <nav class="main-nav">
-        <span class="nav-home">Kiah Banerjee</span>
-        <span>Archive</span>
-        <span>CV</span>
-        <a href="info.html">Information</a>
-    </nav>
-
-    <div class="home">
-        <section class="project-section">
-            <a href="edible streets.html"><img src="edible streets 1.jpg" class="featured-img" alt="Edible Streets"></a>
-            <div class="featured-info">
-                <p class="project-title">Edible Streets</p>
-                <p class="project-type">Book Design</p>
+    <section class="selected-work">
+        <p class="section-label">Selected Work</p>
+        <div class="project-grid">
+            <div class="project">
+                <a href="edible streets.html">
+                    <img src="edible streets 1.jpg" alt="Edible Streets">
+                </a>
+                <p class="project-label"><span class="project-title">Edible Streets</span> / <span class="project-type">Book Design</span></p>
             </div>
-        </section>
-        <section class="project-section">
-            <a href="nycsm.html"><video class="featured-video" autoplay muted loop playsinline>
-                <source src="nyc street musicians.mp4" type="video/mp4">
-            </video></a>
-            <div class="featured-info">
-                <p class="project-title">NYC Street Musicians</p>
-                <p class="project-type">Publication</p>
+            <div class="project">
+                <a href="nycsm.html">
+                    <video autoplay muted loop playsinline>
+                        <source src="nyc street musicians.mp4" type="video/mp4">
+                    </video>
+                </a>
+                <p class="project-label"><span class="project-title">NYC Street Musicians</span> / <span class="project-type">Publication</span></p>
             </div>
-        </section>
-        <section class="project-section">
-            <video class="featured-video" autoplay muted loop playsinline>
-                <source src="book of sand 1.mp4" type="video/mp4">
-            </video>
-            <div class="featured-info">
-                <p class="project-title">The Book of Sand</p>
-                <p class="project-type">Creative Coding & Interaction Design</p>
+            <div class="project">
+                <video autoplay muted loop playsinline>
+                    <source src="book of sand 1.mp4" type="video/mp4">
+                </video>
+                <p class="project-label"><span class="project-title">The Book of Sand</span> / <span class="project-type">Creative Coding & Interaction Design</span></p>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
 
-    <script>
-        const container  = document.querySelector('.lines');
-        const spacing    = 10;
-        const pad        = 20;
-        const count      = Math.ceil((window.innerWidth - pad * 2) / spacing);
-        const hasPlayed  = sessionStorage.getItem('skipIntro');
-        sessionStorage.removeItem('skipIntro');
-
-        for (let i = 0; i < count; i++) {
-            const line = document.createElement('div');
-            line.className = 'vline';
-            if (hasPlayed) {
-                line.style.animation = 'none';
-                line.style.transform = 'scaleY(1)';
-                line.style.opacity   = '1';
-            } else {
-                line.style.animationDelay = (1.4 + i * 0.015) + 's';
-            }
-            container.appendChild(line);
-        }
-
-        if (hasPlayed) {
-            const intro = document.querySelector('.intro');
-            const lines = document.querySelector('.lines');
-            intro.style.transition = 'none';
-            lines.style.transition = 'none';
-            intro.classList.add('exit');
-            lines.classList.add('exit');
-            document.querySelector('.main-nav').classList.add('visible');
-            const featuredImg  = document.querySelector('.featured-img');
-            const firstInfo    = document.querySelector('.project-section:first-child .featured-info');
-            featuredImg.style.transition = 'none';
-            firstInfo.style.transition   = 'none';
-            featuredImg.classList.add('visible');
-            firstInfo.classList.add('visible');
-        } else {
-
-            const lastLineEnd = (1.4 + (count - 1) * 0.015 + 0.25) * 1000;
-            const exitStart   = lastLineEnd + 150;
-            const homeDelay   = exitStart + 1000 + 400;
-
-            setTimeout(() => {
-                document.querySelector('.intro').classList.add('exit');
-                document.querySelector('.lines').classList.add('exit');
-            }, exitStart);
-
-            setTimeout(() => {
-                document.querySelector('.main-nav').classList.add('visible');
-            }, homeDelay);
-
-            setTimeout(() => {
-                document.querySelector('.featured-img').classList.add('visible');
-                document.querySelector('.project-section:first-child .featured-info').classList.add('visible');
-            }, homeDelay + 200);
-        }
-
-        // Trigger each scroll section when snapped into view
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const video = entry.target.querySelector('.featured-video');
-                    const info  = entry.target.querySelector('.featured-info');
-                    video.style.transition = 'none';
-                    info.style.transition  = 'none';
-                    video.classList.add('visible');
-                    info.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.15 });
-
-        document.querySelectorAll('.project-section:not(:first-child)').forEach(s => observer.observe(s));
-
-        // Click anywhere to advance to next section
-        const home     = document.querySelector('.home');
-        const sections = [...document.querySelectorAll('.project-section')];
-        let currentIdx = 0;
-
-        document.querySelector('.nav-home').addEventListener('click', () => {
-            currentIdx = 0;
-            home.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        home.addEventListener('scroll', () => {
-            currentIdx = Math.round(home.scrollTop / window.innerHeight);
-        });
-
-        home.addEventListener('click', (e) => {
-            if (e.target.closest('a, button, video, img, nav')) return;
-            if (currentIdx < sections.length - 1) {
-                currentIdx++;
-            } else {
-                currentIdx = 0;
-            }
-            home.scrollTo({ top: window.innerHeight * currentIdx, behavior: 'smooth' });
-        });
-    </script>
 </body>
 </html>
