@@ -23,7 +23,7 @@
 
     <nav class="main-nav home-nav">
         <span>Archive</span>
-        <span>CV</span>
+        <a href="cv.html">CV</a>
     </nav>
 
     <div class="site-header">
@@ -63,7 +63,12 @@
 
     <script>
         const intro = document.getElementById('intro');
-        intro.addEventListener('animationend', () => intro.remove());
+        if (sessionStorage.getItem('skipIntro')) {
+            intro.remove();
+            sessionStorage.removeItem('skipIntro');
+        } else {
+            intro.addEventListener('animationend', () => intro.remove());
+        }
 
         const lightbox = document.getElementById('lightbox');
         const inner = document.querySelector('.lightbox-inner');

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV — Kiah Banerjee</title>
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cv.css">
+    <link rel="stylesheet" href="https://use.typekit.net/ieb3fys.css">
+</head>
+<body>
+
+    <nav class="main-nav">
+        <a href="index.html" class="nav-home">Kiah Banerjee</a>
+        <div class="nav-right">
+            <span>Archive</span>
+            <span>CV</span>
+        </div>
+    </nav>
+
+    <a href="Kiah%20Banerjee%20Resume.pdf" download="Kiah Banerjee Resume.pdf" class="cv-download">Download CV</a>
+
+    <div class="cv-border"></div>
+
+    <div class="cv-columns">
+
+        <div class="cv-col">
+            <p class="cv-col-header">Education</p>
+
+            <div class="cv-entry">
+                <p class="cv-date">Aug '24 – Present</p>
+                <p class="cv-org">Parsons School of Design</p>
+                <p class="cv-location">New York, NY</p>
+                <p>BFA Communication Design</p>
+                <p>GPA 3.9, Dean's List</p>
+            </div>
+
+            <div class="cv-entry">
+                <p class="cv-date">Aug '16 – May '24</p>
+                <p class="cv-org">Inventure Academy</p>
+                <p class="cv-location">Bangalore, India</p>
+                <p>GCSE &amp; A Levels</p>
+            </div>
+        </div>
+
+        <div class="cv-col">
+            <p class="cv-col-header">Experience</p>
+
+            <div class="cv-entry">
+                <p class="cv-date">July '25 – Aug '25</p>
+                <p class="cv-role">Internship</p>
+                <p class="cv-org">Yume Labs</p>
+                <p class="cv-location">Bangalore, India</p>
+                <ul class="cv-bullets">
+                    <li>Evaluated multiple AI platforms, compared outputs, and developed a detailed formula, workflow, &amp; template to streamline the company's creative process.</li>
+                    <li>Established a standardized workflow for producing consistent, usable illustrations across graphic design &amp; UI/UX projects.</li>
+                </ul>
+            </div>
+
+            <div class="cv-entry">
+                <p class="cv-date">Jun '25 – Jul '25</p>
+                <p class="cv-role">Participant</p>
+                <p class="cv-org">Thinkar Foundation – Brain Blitz Project</p>
+                <p class="cv-location">Bangalore, India</p>
+                <ul class="cv-bullets">
+                    <li>Design thinking challenge focused on solving real-world problems.</li>
+                    <li>Led a team of 6 in developing a solution to improve medication management for the elderly.</li>
+                    <li>Conducted user research and applied tools like persona maps &amp; journey maps to frame the problem and guide ideation.</li>
+                </ul>
+            </div>
+
+            <div class="cv-entry">
+                <p class="cv-date">Oct '23 – Nov '23</p>
+                <p class="cv-role">Internship</p>
+                <p class="cv-org">Rezonant Design</p>
+                <p class="cv-location">Bangalore, India</p>
+                <ul class="cv-bullets">
+                    <li>Developed illustrations to accompany client presentations.</li>
+                    <li>Created benchmarking decks for packaging design, compiling competitive research &amp; visual references for brand pitches.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cv-col">
+            <p class="cv-col-header">Skills</p>
+            <ul class="cv-list">
+                <li>Print Design and Production</li>
+                <li>Immersive Design</li>
+                <li>Motion Graphics</li>
+                <li>Creative Coding</li>
+                <li>Interaction Design</li>
+                <li>Brand Identity</li>
+                <li>Illustration</li>
+                <li>Typography</li>
+                <li>Type Setting</li>
+                <li>Web Design</li>
+                <li>Art Direction</li>
+            </ul>
+
+            <p class="cv-col-header cv-tools-header">Tools</p>
+            <ul class="cv-list">
+                <li>Adobe Creative Suite</li>
+                <li>After Effects, Premiere Pro</li>
+                <li>TouchDesigner</li>
+                <li>Figma</li>
+                <li>Canva</li>
+                <li>VS Code, HTML, CSS, JavaScript</li>
+                <li>Claude Code</li>
+                <li>MidJourney</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <script>
+        document.querySelector('.nav-home').addEventListener('click', () => {
+            sessionStorage.setItem('skipIntro', '1');
+        });
+    </script>
+</body>
+</html>

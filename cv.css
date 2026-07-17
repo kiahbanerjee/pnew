@@ -1,0 +1,112 @@
+body {
+    overflow: hidden;
+    font-size: 15px;
+}
+
+.main-nav {
+    font-size: 18px;
+}
+
+.cv-download {
+    position: fixed;
+    bottom: var(--pad);
+    right: var(--pad);
+    text-decoration: none;
+    color: #FFBD00;
+    cursor: url('pointer.svg') 8 16, pointer;
+    z-index: 10;
+    font-size: 18px;
+}
+
+.cv-download:hover {
+    text-decoration: underline dotted;
+    text-underline-offset: 4px;
+}
+
+.cv-border {
+    position: fixed;
+    top: 56px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: #000;
+    z-index: 4;
+}
+
+.cv-columns {
+    position: fixed;
+    top: 57px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: grid;
+    grid-template-columns: 1fr 1.6fr 1fr;
+}
+
+.cv-col {
+    overflow-y: auto;
+    padding: 28px var(--pad);
+    border-right: 1px solid #000;
+    scrollbar-width: none;
+}
+
+.cv-col::-webkit-scrollbar {
+    display: none;
+}
+
+.cv-col:last-child {
+    border-right: none;
+}
+
+.cv-col-header {
+    margin-bottom: 28px;
+}
+
+.cv-tools-header {
+    margin-top: 40px;
+}
+
+.cv-entry {
+    margin-bottom: 36px;
+}
+
+.cv-date {
+    margin-bottom: 6px;
+}
+
+.cv-role {
+    margin-bottom: 4px;
+}
+
+.cv-org {
+    font-family: "neue-haas-grotesk-display", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    margin-bottom: 2px;
+}
+
+.cv-location {
+    margin-bottom: 14px;
+    opacity: 0.6;
+}
+
+.cv-bullets {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.cv-bullets li {
+    padding-left: 20px;
+    line-height: 1.35;
+}
+
+.cv-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
