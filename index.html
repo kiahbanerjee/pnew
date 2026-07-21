@@ -10,11 +10,7 @@
 </head>
 <body>
 
-    <div id="intro">
-        <img src="cursor.svg" id="intro-logo">
-    </div>
-
-    <div class="lightbox" id="lightbox">
+<div class="lightbox" id="lightbox">
         <div class="lightbox-inner">
             <button class="lightbox-close" id="lightbox-close">✕</button>
             <img src="me.jpeg" alt="Kiah Banerjee">
@@ -53,24 +49,25 @@
                 <p class="project-desc">Democratic design for overlooked voices: stories of street musicians, told on their own terms.</p>
             </div>
             <div class="project">
-                <video autoplay muted loop playsinline>
-                    <source src="book of sand 1.mp4" type="video/mp4">
-                </video>
+                <a href="#">
+                    <video autoplay muted loop playsinline>
+                        <source src="book of sand 1.mp4" type="video/mp4">
+                    </video>
+                </a>
                 <p class="project-label"><span class="project-title">The Book of Sand</span> / <span class="project-type">Creative Coding, Interaction Design</span></p>
+            </div>
+            <div class="project">
+                <a href="#">
+                    <img src="hero image.png" alt="So Much Within So Little">
+                </a>
+                <p class="project-label"><span class="project-title">So Much Within So Little</span> / <span class="project-type">Publication, Visual Identity</span></p>
+                <p class="project-desc">A graphic system built on contradiction — minimal in size, monumental in presence.</p>
             </div>
         </div>
     </section>
 
     <script>
-        const intro = document.getElementById('intro');
-        if (sessionStorage.getItem('skipIntro')) {
-            intro.remove();
-            sessionStorage.removeItem('skipIntro');
-        } else {
-            intro.addEventListener('animationend', () => intro.remove());
-        }
-
-        const lightbox = document.getElementById('lightbox');
+const lightbox = document.getElementById('lightbox');
         const inner = document.querySelector('.lightbox-inner');
 
         document.querySelector('.bio-photo').addEventListener('click', function() {
