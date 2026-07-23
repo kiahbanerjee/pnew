@@ -237,6 +237,27 @@ body {
     opacity: 0.7;
 }
 
+.project-nav {
+    position: fixed;
+    bottom: var(--pad);
+    left: var(--pad);
+    right: var(--pad);
+    display: flex;
+    justify-content: space-between;
+    z-index: 10;
+}
+
+.project-nav a {
+    text-decoration: none;
+    color: inherit;
+    cursor: url('pointer.svg') 8 16, pointer;
+}
+
+.project-nav a:hover {
+    text-decoration: underline dotted;
+    text-underline-offset: 4px;
+}
+
 .bio-name,
 .bio-links a,
 .bio-links a:visited,

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>So Much Within So Little — Kiah Banerjee</title>
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="smwsl.css">
+    <link rel="stylesheet" href="https://use.typekit.net/ieb3fys.css">
+</head>
+<body>
+
+    <nav class="main-nav">
+        <a href="index.html" class="nav-home">Kiah Banerjee</a>
+        <div class="nav-right">
+            <span>Archive</span>
+            <a href="cv.html">CV</a>
+        </div>
+    </nav>
+
+    <main class="smwsl-page">
+
+        <div class="smwsl-fullwidth">
+            <img src="hero image.png" alt="So Much Within So Little">
+        </div>
+
+        <div class="smwsl-intro">
+            <p class="smwsl-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac velit nibh. Donec ipsum augue, tempor eu neque ac, tempor suscipit arcu. Donec tincidunt ultrices justo at blandit. Nam iaculis malesuada risus, id feugiat augue cursus a.</p>
+            <div class="smwsl-meta">
+                <p>Publication, Visual Identity</p>
+                <p>2025</p>
+            </div>
+        </div>
+
+        <div class="smwsl-image-pair">
+            <img src="pic 1.jpeg" alt="">
+            <img src="pic2 .jpeg" alt="">
+        </div>
+
+        <div class="smwsl-fullwidth smwsl-video-gap">
+            <video autoplay muted loop playsinline>
+                <source src="vatican city video.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="smwsl-detail">
+            <div class="smwsl-detail-block">
+                <p class="smwsl-detail-label">Detail</p>
+                <p class="smwsl-detail-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac velit nibh. Donec ipsum augue, tempor eu neque ac, tempor suscipit arcu. Donec tincidunt ultrices justo at blandit.</p>
+            </div>
+            <div class="smwsl-detail-block">
+                <p class="smwsl-detail-label">Design</p>
+                <p class="smwsl-detail-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac velit nibh. Donec ipsum augue, tempor eu neque ac, tempor suscipit arcu. Donec tincidunt ultrices justo at blandit.</p>
+            </div>
+        </div>
+
+        <div class="smwsl-padded-video">
+            <video autoplay muted loop playsinline>
+                <source src="cover.mov" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="smwsl-two-col">
+            <div class="smwsl-two-col-video">
+                <video autoplay muted loop playsinline>
+                    <source src="page.mov" type="video/mp4">
+                </video>
+            </div>
+            <div class="smwsl-two-col-text">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac velit nibh. Donec ipsum augue, tempor eu neque ac, tempor suscipit arcu. Donec tincidunt ultrices justo at blandit. Nam iaculis malesuada risus, id feugiat augue cursus a.</p>
+            </div>
+        </div>
+
+        <div class="smwsl-fullwidth">
+            <video autoplay muted loop playsinline>
+                <source src="vvid.mp4" type="video/mp4">
+            </video>
+        </div>
+
+    </main>
+
+    <nav class="project-nav">
+        <a href="nycsm.html">&lt; back</a>
+        <a href="edible streets.html">next &gt;</a>
+    </nav>
+
+    <script>
+        document.querySelector('.nav-home').addEventListener('click', () => {
+            sessionStorage.setItem('skipIntro', '1');
+        });
+    </script>
+</body>
+</html>
